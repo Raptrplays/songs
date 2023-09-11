@@ -7,7 +7,14 @@
     @vite('resources/css/app.css')
     <title>Create</title>
 </head>
-<body>
 
+<body class="bg-emerald-900">
+    <h1>Nummer toevoegen</h1>
+    <form action="" method="POST">
+        @csrf
+        <label for="naamnummer">Naam nummer</label>
+        <input type="text" name="naamnummer" id="naamnummer"> <br>
+        <button class="bg-white"><input type="submit" value="Toevoegen"></button>
+    </form>
 </body>
 </html>

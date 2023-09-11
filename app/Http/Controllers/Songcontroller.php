@@ -33,15 +33,34 @@ class Songcontroller extends Controller
     }
 
 
-    public function show(string $id)
+    
+    public function show($index)
     {
-        return view('songs.show');
+        $songs = [
+            'Living on a prayer', 
+            'Nothing else matters', 
+            'Thunderstruck', 
+            'Back in black', 
+            'Ace of spades'
+            ];
+
+        $index = $songs[$index];
+        return view('songs.show', ['song' => $index]);
     }
 
 
-    public function edit(string $id)
+    public function edit($index)
     {
-        return view('songs.edit');
+        $songs = [
+            'Living on a prayer', 
+            'Nothing else matters', 
+            'Thunderstruck', 
+            'Back in black', 
+            'Ace of spades'
+            ];
+
+        $index = $songs[$index];
+        return view('songs.edit', ['song' => $index]);
     }
 
 

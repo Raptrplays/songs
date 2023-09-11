@@ -7,7 +7,7 @@
     @vite('resources/css/app.css')
     <title>Index</title>
 </head>
-<body>
+<body class="bg-emerald-900">
     @foreach ($songs as $song)
         {{ $song }} <br>
     @endforeach
