@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite('resources/css/app.css')
     <title>Show</title>
-    {{ $song }}
+    {{ $album }}
 
 </head>
-<body class="bg-emerald-900">
+<body>
     
 </body>
 </html>

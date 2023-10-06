@@ -3,27 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\bands;
+use App\Models\albums;
+
 
 class Songcontroller extends Controller
 {
 
     public function index()
     {
-        $songs = [
-        'Living on a prayer', 
-        'Nothing else matters', 
-        'Thunderstruck', 
-        'Back in black', 
-        'Ace of spades'
-        ];
-
-        return view ('songs', ['songs' => $songs]);
+      $bands = bands::all();
+      $albums = albums::all();
+      return view('songs/index', ['bands' => $bands, 'albums' => $albums]);
     }
 
 
     public function create()
     {
-        return view ('songs.create');
+        return view('songs/create');
     }
 
 
@@ -36,31 +33,15 @@ class Songcontroller extends Controller
     
     public function show($index)
     {
-        $songs = [
-            'Living on a prayer', 
-            'Nothing else matters', 
-            'Thunderstruck', 
-            'Back in black', 
-            'Ace of spades'
-            ];
-
-        $index = $songs[$index];
-        return view('songs.show', ['song' => $index]);
+        $ab = albums::where('id', $index)->get();
+        return view('detail', ['albums' => $index]);
     }
 
 
     public function edit($index)
     {
-        $songs = [
-            'Living on a prayer', 
-            'Nothing else matters', 
-            'Thunderstruck', 
-            'Back in black', 
-            'Ace of spades'
-            ];
-
-        $index = $songs[$index];
-        return view('songs.edit', ['song' => $index]);
+        $album = albums::find($index);
+        return view('edit', compact( 'album' ));
     }
 
 
@@ -71,6 +52,11 @@ class Songcontroller extends Controller
 
     public function destroy(string $id)
     {
-        //
+        $album = albums::find($id);
+        $album->delete();
+
+        $bands = bands::find($id);
+        $bands->delete();
+        return redirect('songs/index');
     }
 }
