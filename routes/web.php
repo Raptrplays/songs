@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/index', [HomeController::class, 'index']);            // Index
+/*
 Route::get('/album/create', [Albumcontroller::class, 'create']);      // Create Form
 Route::post('/album/store', [Albumcontroller::class, 'store']);             // Store
 Route::get('/album/{id}', [Albumcontroller::class, 'show']);          // Show
@@ -20,7 +21,10 @@ Route::get('/band/{id}', [Bandcontroller::class, 'show']);          // Show
 Route::get('/band/{id}/edit', [Bandcontroller::class, 'edit']);     // Edit Form
 Route::put('/band/{id}', [Bandcontroller::class, 'update']);         // Update
 Route::delete('/band/{id}', [Bandcontroller::class, 'destroy']);    // Delete
+*/
 
+Route::resource('album', AlbumController::class);
+Route::resource('band', BandController::class);
 
 
 

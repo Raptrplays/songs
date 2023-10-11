@@ -21,7 +21,7 @@ class Bandcontroller extends Controller
      */
     public function create()
     {
-        return view('bandCreate');
+        return view('band/bandCreate');
     }
 
     /**
@@ -49,7 +49,7 @@ class Bandcontroller extends Controller
     public function show(string $index)
     {
         $ba = bands::where('id', $index)->get();
-        return view('bandDetail', ['bands' => $index]);
+        return view('band/bandDetail', ['bands' => $index]);
     }
 
     /**
@@ -58,7 +58,7 @@ class Bandcontroller extends Controller
     public function edit(string $index)
     {
         $band = bands::find($index);
-        return view('bandEdit', compact( 'band' ));
+        return view('band/bandEdit', compact( 'band' ));
     }
 
     /**
@@ -66,6 +66,7 @@ class Bandcontroller extends Controller
      */
     public function update(Request $request, string $id)
     {
+        //dd($request);
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'genre' => 'required|string|max:255',

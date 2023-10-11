@@ -17,7 +17,7 @@ class Albumcontroller extends Controller
 
     public function create()
     {
-        return view('albumCreate');
+        return view('album/albumCreate');
     }
 
 
@@ -42,14 +42,14 @@ class Albumcontroller extends Controller
     public function show($index)
     {
         $ab = albums::where('id', $index)->get();
-        return view('albumDetail', ['albums' => $index]);
+        return view('album/albumDetail', ['albums' => $index]);
     }
 
 
     public function edit($index)
     {
         $album = albums::find($index);
-        return view('albumEdit', compact( 'album' ));
+        return view('album/albumEdit', compact( 'album' ));
     }
 
 
